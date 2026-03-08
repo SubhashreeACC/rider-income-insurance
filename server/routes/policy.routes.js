@@ -1,11 +1,8 @@
-const router = require("express").Router()
+const express = require("express")
+const router = express.Router()
+const policyController = require("../controllers/policy.controller")
 
-console.log("Policy route loaded")
-
-router.get("/", (req, res) => {
-  res.json({
-    message: "Policy route working"
-  })
-})
+router.get("/", policyController.getPolicies)
+router.post("/", policyController.createPolicy)
 
 module.exports = router
